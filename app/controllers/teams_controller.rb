@@ -18,7 +18,6 @@ class TeamsController < ApplicationController
 
     get '/teams/:id' do
         find_team
-        session[:team_id] = @tame.id if @team
         redirect_if_team_not_found
         erb :'/teams/show'
       end
