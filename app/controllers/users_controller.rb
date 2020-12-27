@@ -4,6 +4,11 @@ class UsersController < ApplicationController
         erb :'users/signup'
     end
 
+    get '/users/:id' do
+        @user = User.find_by(params[:id])
+        erb :'users/show'
+      end
+
     get '/users' do
         @users = User.all
         erb :'users/index'

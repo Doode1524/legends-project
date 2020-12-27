@@ -1,0 +1,8 @@
+
+
+<p> <%= @user.username %>'s teams:
+<% @user.teams.each do |team| %>
+  <div>
+    <%= team.team_name %>
+  </div>
+<% end %>

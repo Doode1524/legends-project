@@ -23,14 +23,32 @@ class TeamsController < ApplicationController
       end
     
 
+    # post '/teams' do
+    #     team = Team.new(params)
+    #     if team.save
+    #         redirect '/teams'
+    #     else
+    #         redirect '/teams/new'
+    #     end
+    # end
+
     post '/teams' do
-        team = Team.new(params)
-        if team.save
-            redirect '/teams'
+        if logged_in?
+          if params[:team_name] == ""
+            redirect to "/teams/new"
+          else
+            @team = current_user.teams.build(team_name: params[:team_name])
+            if @team.save
+              redirect to "/teams/#{@team.id}"
+            else
+              redirect to "/teams/new"
+            end
+          end
         else
-            redirect '/teams/new'
+          redirect to '/login'
         end
-    end
+      end
+
 
     patch '/teams/:id' do
         find_team
