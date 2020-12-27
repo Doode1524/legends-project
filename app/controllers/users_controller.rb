@@ -4,6 +4,11 @@ class UsersController < ApplicationController
         erb :'users/signup'
     end
 
+    get '/users' do
+        @users = User.all
+        erb :'users/index'
+    end
+
     post '/signup' do
         user = User.new(params[:user])
         if user.save
