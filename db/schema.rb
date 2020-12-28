@@ -13,6 +13,34 @@
 
 ActiveRecord::Schema.define(version: 20201227025353) do
 
+  create_table "champions", force: :cascade do |t|
+    t.float   "Attack"
+    t.float   "Defense"
+    t.float   "Magic"
+    t.float   "Difficulty"
+    t.float   "Hp"
+    t.float   "HpUpPerLevel"
+    t.float   "Mp"
+    t.float   "MpUpPerLevel"
+    t.float   "MoveSpeed"
+    t.float   "Armor"
+    t.float   "ArmorPerLevel"
+    t.float   "SpellBlock"
+    t.float   "SpellBlockPerLevel"
+    t.float   "AttackRange"
+    t.float   "HpRegen"
+    t.float   "HpRegenPerLevel"
+    t.float   "MpRegen"
+    t.float   "MpRegenPerLevel"
+    t.float   "AttackDamage"
+    t.float   "AttackDamagePerLevel"
+    t.float   "AttackSpeedOffset"
+    t.integer "ChampionId"
+    t.string  "Name"
+    t.string  "Title"
+    t.integer "team_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string   "team_name"
     t.datetime "created_at", null: false
