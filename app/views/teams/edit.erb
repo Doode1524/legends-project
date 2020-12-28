@@ -4,19 +4,23 @@
 <form action="/teams/<%= @team.id %>" method="post">
     <input type="hidden" name="_method" value="patch">
     <div class="input-field">
-          <input id="team_name" name="team_name[team_name]" value="<%= @team.team_name %>" type="text" class="validate">
           <label for="team_name">Team Name</label>
+          <input id="team_name" name="user[team_name]" value="<%= @team.team_name %>" type="text" class="validate">
     </div>
-          <input type="submit" value="Update Team" class="btn">
-          
+
           <ul style="position:relative; column-count: 10; column-rule: dotted 1px #333; list-style-type: none;">      
                   <%Champion.all.each do |champ|%>    
                   <div class="form-row">    
                         <label  style="color:black" class="container"><%=champ.Name%>     
-                              <input style="position:relative;" value="<%=champ.id%>" type="checkbox"  name="user[champion_ids][]" >
-                                    <span class="checkmark"></span>     
+                              <input style="position:relative;" value="<%=champ.id%>" type="checkbox" name="user[champion_ids][]" >
+                              <span class="checkmark"></span>     
                         </label>     
                   </div>     
                   <%end%>   
-            </ul>                   
+            </ul>
+          <input type="submit" value="Update Team" class="btn">
 </form>
+                         
+
+
+

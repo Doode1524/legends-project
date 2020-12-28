@@ -1,5 +1,14 @@
-<h3><%= @team.team_name %></h3>
+<h3><%= @team.team_name %>:</h3>
 <p>Champion statistics coming soon!!!</p>
+
+<p>
+    <% @team.champions.collect do |champ| %>
+     <ul>
+        <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
+        <% end %>
+    </ul>
+</p>
+
 
 
 <form action="/teams/<%= @team.id %>" method="post">

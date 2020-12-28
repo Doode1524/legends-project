@@ -56,7 +56,8 @@ class TeamsController < ApplicationController
     patch '/teams/:id' do
         find_team
         redirect_if_team_not_found
-        if @team.update(params[:team_name])
+        # binding.pry
+        if @team.update(params[:user])
             redirect "/teams/#{@team.id}"
         else
             redirect "/teams/#{@team.id}/edit"
