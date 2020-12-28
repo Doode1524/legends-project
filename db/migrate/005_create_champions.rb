@@ -1,6 +1,6 @@
 class CreateChampions < ActiveRecord::Migration
     def change
-      create_table :champions do |t|
+        create_table :champions do |t|
         t.float :Attack
         t.float :Defense
         t.float :Magic

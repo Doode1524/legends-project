@@ -10,6 +10,7 @@ class ChampionsController < ApplicationController
 
     get '/champions/:id' do
         find_champion
+        @stats = @champ.attributes
         erb :'champions/show'
     end
 

@@ -1,2 +1,6 @@
 <h3> <%= @champ.Name %>'s Stats:</h3>
 
+
+
+<% @stats.each do |k,v| %>   <%= "#{k}" %>: <%= "#{v}" %> <br /> <% end %>
+
