@@ -3,6 +3,6 @@ class Team < ActiveRecord::Base
 
     belongs_to :user
     has_many :team_champions
-    has_many :champions
+    has_many :champions, through: :team_champions
 end
 

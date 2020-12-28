@@ -39,7 +39,8 @@ class TeamsController < ApplicationController
           if params[:team_name] == ""
             redirect to "/teams/new"
           else
-            @team = current_user.teams.build(team_name: params[:team_name])
+            # @team = current_user.teams.build(team_name: params[:user][:team_name], champion_ids: params[:user][:champion_ids])
+            @team = Team.create(team_name: params[:user][:team_name], champion_ids: params[:user][:champion_ids], user_id: current_user.id)
             if @team.save
               redirect to "/teams/#{@team.id}"
             else
