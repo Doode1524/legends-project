@@ -1,8 +1,17 @@
 
 
+
+
 <p> <%= @user.username %>'s teams:
-<% @user.teams.each do |team| %>
-  <div>
-    <%= team.team_name %>
-  </div>
-<% end %>
+    <% Team.all.collect do |team| 
+        if team.user_id  == @user.id %>
+        <div>
+            <%= team.team_name %>
+        </div>
+
+        <% end %> 
+
+    <% end %>
+</p>
+
+
