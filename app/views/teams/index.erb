@@ -1,7 +1,12 @@
-<h1>Teams List</h1>
+<p> <%= @user.username %>'s teams:
+    <% @teams.collect do |team| 
+        if team.user_id  == @user.id %>
+        <div>
+            <%= team.team_name %>
+        </div>
 
-<ul>
-<% @teams.each do |team|%>
-<li><a href="/teams/<%= team.id %>"><%= team.team_name %></li>
-<% end %>
-</ul>
+        <% end %> 
+
+    <% end %>
+</p>
+

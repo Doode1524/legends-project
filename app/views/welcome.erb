@@ -1,1 +1,10 @@
 <h1>Welcome Page<h1>
+
+<h1>Teams List</h1>
+
+<ul>
+<% @teams.each do |team|%>
+<li><a href="/teams/<%= team.id %>"><%= team.team_name %></li>
+<% end %>
+</ul>
+
