@@ -5,10 +5,10 @@ class Champion < ActiveRecord::Base
 
     # Api.load_data     
 
-    def self.hash_champs
-        Champion.all.collect do |champ|
-            champ.attributes
-        end
-    end
+    # def self.hash_champs
+    #     Champion.all.collect do |champ|
+    #         champ.attributes
+    #     end
+    # end
  
 end
