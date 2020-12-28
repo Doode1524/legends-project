@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
 
     get '/teams' do
+        
         @teams = Team.all
         @team = Team.find_by_id(session[:team_id])
         @user = current_user

@@ -3,7 +3,7 @@
     <% Champion.hash_champs.each do |champ| %>
 
 <ul>
-    <li><%= champ["id"] %>: <%=champ["Name"] %> </li>
+    <li><%= champ["id"] %>: <a href= "/champions><%= champ["Name"] %></a> </li>
 </ul>
 <% end %>
 
