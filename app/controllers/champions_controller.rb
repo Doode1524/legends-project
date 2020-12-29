@@ -10,7 +10,7 @@ class ChampionsController < ApplicationController
 
     get '/champions/:id' do
         find_champion
-        @stats = @champ.attributes
+        @stats = @champ.attributes.except("id")
         erb :'champions/show'
     end
 
