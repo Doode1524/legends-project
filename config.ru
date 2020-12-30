@@ -5,6 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
+use DuelsController
 use UsersController
 use TeamsController
 use ChampionsController
