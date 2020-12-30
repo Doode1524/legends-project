@@ -11,7 +11,14 @@ class DuelsController < ApplicationController
         @teams = Team.all
         @team = Team.find_by_id(params[:id])
         erb :'/duels/new'
-      end
+    end
+      
+    post '/duel' do
+        redirect to '/duel'
+    end
 
+    get '/duel' do
+        erb :'duels/duel'
+      end
 
 end
