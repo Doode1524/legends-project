@@ -1,4 +1,19 @@
-<h1>AND THE WINNER IS:</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<% if @enemy_values.sum > @allied_values.sum %>
+    <h1>"Your Nexus has been destroyed!"</h1>
+    <h3>Winning team: <%= @enemy_team.team_name %>
+    <% else %>
+    <h1>"Your have destroyed the enemy Nexus!"</h1>
+    <h3>Winning team: <%= allied_team.team_name %>
+<% end %>
 
-
-<H4>Coming soon!!</H4>
+    
+</body>
+</html>
