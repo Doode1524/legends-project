@@ -25,14 +25,32 @@
 </table>
 </div>
 
+<div style="position: absolute; left: 3%; top: 95%;">
+<h3> Choose a team to duel with!: </h3>
+    <% @teams.collect do |team| 
+        if team.user_id  == @user.id %>
+        <div>
+            
+         <form action="/duel" method="post">
+            <label>
+                <input name="dueling_team" value="<% team.id %>" type="checkbox" class="filled-in"  />
+                <span style="color: black;"><%= team.team_name %></span>
+            </label>
+        <% end %> 
+        <% end %>
+            
+        </form>
+        </div>
+        <div style="position: absolute; left: 60%; top: 50%;" >
+                <input type="submit" value="Duel Now!" class="btn-large">  
+        </div>
+         </div>
+
+                
+            
 
 
-<div style="position: absolute; left: 4%; top: 95%;">
-<form action="/teams/<%= @team.id %>" method="post">
-    <a href="/teams/<%= @team.id %>/edit" class="btn">Edit Team</a>
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Remove Team" class="btn">
-    <a href="/duels/<%= @team.id %>/new" class="btn">Duel Team</a>
+
+   
     
-</form>
-</div>
+   

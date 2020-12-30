@@ -6,9 +6,11 @@ class DuelsController < ApplicationController
         @user = current_user
         erb :'/duels/home'
     end
-
-    get '/duels/4' do
-        "Hello World"
+    get '/duels/:id/new' do
+        @user = current_user
+        @teams = Team.all
+        @team = Team.find_by_id(params[:id])
+        erb :'/duels/new'
       end
 
 
