@@ -29,7 +29,7 @@ class TeamsController < ApplicationController
 
     post '/teams' do
         if logged_in?
-          if params[:team_name] == ""
+          if params[:team_name] == "" || params[:user][:champion_ids].length != 5
             redirect to "/teams/new"
           else
             # @team = current_user.teams.build(team_name: params[:user][:team_name], champion_ids: params[:user][:champion_ids])
