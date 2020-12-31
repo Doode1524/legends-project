@@ -6,12 +6,14 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id' do
+        redirect_if_not_logged_in
         @user = User.find_by_id(params[:id])
         erb :'users/show'
         
     end
 
     get '/users' do
+        redirect_if_not_logged_in
         @users = User.all
         erb :'users/index'
     end

@@ -1,15 +1,13 @@
 class ChampionsController < ApplicationController
 
     get '/champions' do
-     
-        # Champion.hash_champs.collect do |champ|
-        #    @champs = champ["Name"]
-        # end
+        redirect_if_not_logged_in
         erb :'/champions/index'
     end
 
     get '/champions/:id' do
         find_champion
+        redirect_if_not_logged_in
         @stats = @champ.attributes.except("id")
         erb :'champions/show'
     end

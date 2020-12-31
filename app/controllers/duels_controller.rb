@@ -1,12 +1,14 @@
 class DuelsController < ApplicationController
 
     get '/duels' do
+        redirect_if_not_logged_in
         @teams = Team.all
         @team = Team.find_by_id(session[:team_id])
         @user = current_user
         erb :'/duels/home'
     end
     get '/duels/:id/new' do
+        redirect_if_not_logged_in
         @user = current_user
         @teams = Team.all
         @team = Team.find_by_id(params[:id])
@@ -34,7 +36,7 @@ class DuelsController < ApplicationController
     end
 
     get '/duel' do
- 
+        redirect_if_not_logged_in
         erb :'duels/duel'
     end
 
