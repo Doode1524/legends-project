@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 
     get '/teams' do
-        
+      redirect_if_not_logged_in
         @teams = Team.all
         @team = Team.find_by_id(session[:team_id])
         @user = current_user
@@ -14,15 +14,17 @@ class TeamsController < ApplicationController
 
     get '/teams/:id/edit' do
         find_team
+        redirect_if_not_logged_in
         redirect_if_team_not_found
         erb :'teams/edit'
     end
 
     get '/teams/:id' do
+        redirect_if_not_logged_in
         find_team
         redirect_if_team_not_found
         erb :'/teams/show'
-      end
+    end
     
 
     # post '/teams' do
