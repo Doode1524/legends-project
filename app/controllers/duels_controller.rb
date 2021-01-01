@@ -15,11 +15,11 @@ class DuelsController < ApplicationController
         erb :'/duels/new'
     end
       
-    post '/duel' do         
+    post '/duel' do
         @allied_values = []         
         @enemy_values = []         
         @enemy_team = Team.find_by_id(params[:enemy_team])         
-        @allied_team = Team.find_by_id(params[:current_user_team])       
+        @allied_team = Team.find_by_id(params[:current_user_team])         
             @allied_team.champions.collect do |champ|             
                 @allied_stats = champ.attributes.except("Name", "Title","id","ChampionId")         
             end         

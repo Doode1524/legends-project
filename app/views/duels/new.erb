@@ -34,16 +34,19 @@
          <form action="/duel" method="post">
          <input type="hidden" name="enemy_team" value="<%= @team.id %>">
             <label>
-                <input name="current_user_team" value="<%= team.id %>" type="checkbox" class="filled-in"  />
+                <input name="current_user_team" value="<%= team.id %>" type="radio" class="filled-in"  />
             <span style="color: black;"><%= team.team_name %></span>
             <label>
              
             </label>
         <% end %> 
         <% end %>
+
+        <form action="#">
+
             
-        <div style="position: absolute; left: 60%; top: 50%;" >
-                <input type="submit" value="Duel Now!" class="btn-large">  
+        <div style="position: absolute; left: 60%; top: 68%;" >
+                <input type="submit" value="Duel Now!" class="btn">  
         </div>
         </form>
         </div>
