@@ -17,6 +17,7 @@ class TeamsController < ApplicationController
         find_team
         redirect_if_not_logged_in
         redirect_if_team_not_found
+        redirect_if_not_team_owner
         erb :'teams/edit'
     end
 
@@ -74,4 +75,7 @@ class TeamsController < ApplicationController
         redirect "/teams" unless @team
     end
 
+    def redirect_if_not_team_owner
+      redirect "/teams" unless @team.user_id == current_user.id
+    end
 end
