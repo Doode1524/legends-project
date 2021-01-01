@@ -8,18 +8,115 @@
           <input id="team_name" name="user[team_name]" value="<%= @team.team_name %>" type="text" class="validate">
     </div>
 
-          <ul style="position:relative; column-count: 10; column-rule: dotted 1px #333; list-style-type: none;">      
-                  <%Champion.all.each do |champ|%>    
-                  <div class="form-row">    
-                        <label  style="color:black" class="container"><%=champ.Name%>     
-                              <input style="position:relative;" value="<%=champ.id%>" type="checkbox" name="user[champion_ids][]" >
-                              <span class="checkmark"></span>     
-                        </label>     
-                  </div>     
-                  <%end%>   
-            </ul>
-          <input type="submit" value="Update Team" class="btn">
-</form>
+      <div style="display: flex; flex-direction: column; align-items: left; justify-content: center;">
+    <% Champion.all.each do |champ| %>
+    <% if champ.id <= 31 %>
+<div style="display: flex; align-items: center; white-space: no-wrap; 
+    width: 10%; height: 20px; margin: 0px; padding: 0px;">
+<label  style="color:black; margin-right: auto;"><%=champ.id%>:&nbsp <%=champ.Name%></label> 
+                        <input value="<%=champ.id%>" style=" position: relative; opacity: 1; pointer-events: initial;" type="checkbox"  name="user[champion_ids][]" />
+</div >
+    <% elsif champ.id <= 62 && champ.id > 31 %>
+<div style="display: flex; align-items: center; white-space: no-wrap; 
+    width: 10%; height: 20px; margin: 0px; padding: 0px; position: relative; left: 20%; bottom: 620px; ">
+<label  style="color:black; margin-right: auto;"><%=champ.id%>:&nbsp<%=champ.Name%></label> 
+                        <input value="<%=champ.id%>" style=" position: relative; opacity: 1; pointer-events: initial;" type="checkbox"  name="user[champion_ids][]" />
+</div>
+    <% elsif champ.id <= 93 && champ.id > 62 %>
+<div style="display: flex; align-items: center; white-space: no-wrap; 
+    width: 10%; height: 20px; margin: 0px; padding: 0px; position: relative; left: 40%; bottom: 1240px;">
+<label  style="color:black; margin-right: auto;"><%=champ.id%>:&nbsp<%=champ.Name%></label> 
+                        <input value="<%=champ.id%>" style=" position: relative; opacity: 1; pointer-events: initial;" type="checkbox"  name="user[champion_ids][]" />
+</div>
+    <% elsif champ.id <= 124 && champ.id > 93 %>
+<div style="display: flex; align-items: center; white-space: no-wrap; 
+    width: 10%; height: 20px; margin: 0px; padding: 0px; position: relative; left: 60%; bottom: 1860px; ">
+<label  style="color:black; margin-right: auto;"><%=champ.id%>:&nbsp<%=champ.Name%></label> 
+                        <input value="<%=champ.id%>" style=" position: relative; opacity: 1; pointer-events: initial;" type="checkbox"  name="user[champion_ids][]" />
+</div>
+    <% elsif champ.id <= 155 && champ.id > 124 %>
+<div style="display: flex; align-items: center; white-space: no-wrap; 
+    width: 10%; height: 20px; margin: 0px; padding: 0px; position: relative; left: 80%; bottom: 2480px; ">
+<label  style="color:black; margin-right: auto;"><%=champ.id%>:&nbsp<%=champ.Name%></label> 
+                        <input value="<%=champ.id%>" style=" position: relative; opacity: 1; pointer-events: initial;" type="checkbox"  name="user[champion_ids][]" />
+</div>
+
+
+<% end %>
+<% end %>  
+        
+ 
+  
+      <div style="position: absolute; left: 15%; top: 17%;" >      
+      <input type="submit" value="Update Team" class="btn">
+      </div>
+        </form>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
                          
 
 
