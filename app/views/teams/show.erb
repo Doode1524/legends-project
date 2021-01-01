@@ -16,18 +16,18 @@
 <th><a href= "/champions/<%= @team.champions[4].id %>"><%= @team.champions[4].Name %></a></th>
 </tr>
 <tr>
-<td><img height="600px" src="/images/champ_img/<%= @team.champions[0].id %>.jpg"></td>
-<td><img height="600px" src="/images/champ_img/<%= @team.champions[1].id %>.jpg"></td>
-<td><img height="600px" src="/images/champ_img/<%= @team.champions[2].id %>.jpg"></td>
-<td><img height="600px" src="/images/champ_img/<%= @team.champions[3].id %>.jpg"></td>
-<td><img height="600px" src="/images/champ_img/<%= @team.champions[4].id %>.jpg"></td>
+<td><img height="570px" src="/images/champ_img/<%= @team.champions[0].id %>.jpg"></td>
+<td><img height="570px" src="/images/champ_img/<%= @team.champions[1].id %>.jpg"></td>
+<td><img height="570px" src="/images/champ_img/<%= @team.champions[2].id %>.jpg"></td>
+<td><img height="570px" src="/images/champ_img/<%= @team.champions[3].id %>.jpg"></td>
+<td><img height="570px" src="/images/champ_img/<%= @team.champions[4].id %>.jpg"></td>
 </tr>     
 </table>
 </div>
 
 
 
-<div style="position: absolute; left: 4%; top: 96%;">
+<div style="position: absolute; left: 4%; top: 93%;">
 <form action="/teams/<%= @team.id %>" method="post">
     <a href="/teams/<%= @team.id %>/edit" class="btn">Edit Team</a>
     <input type="hidden" name="_method" value="delete">
