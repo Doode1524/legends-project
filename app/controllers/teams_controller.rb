@@ -29,8 +29,9 @@ class TeamsController < ApplicationController
     end
 
     post '/teams' do
+    
         if logged_in?
-          if params[:team_name] == "" || !params[:user].include?([:champion_ids]) || params[:user][:champion_ids].length != 5 
+          if params[:team_name] == "" || params[:user][:champion_ids] == nil || params[:user][:champion_ids].length != 5 
             redirect to "/teams/new"
           else
             # @team = current_user.teams.build(team_name: params[:user][:team_name], champion_ids: params[:user][:champion_ids])
@@ -48,11 +49,12 @@ class TeamsController < ApplicationController
 
 
     patch '/teams/:id' do
+      
         find_team
         redirect_if_team_not_found
-        if params[:team_name] == "" || !params[:user].include?([:champion_ids]) || params[:user][:champion_ids].length != 5 
-          redirect to "/teams/#{@team.id}/edit"
-        elsif @team.update(params[:user])
+        redirect_if_not_team_owner
+        # binding.pry
+        if @team.update(params[:user])
             redirect "/teams/#{@team.id}"
         else
             redirect "/teams/#{@team.id}/edit"
