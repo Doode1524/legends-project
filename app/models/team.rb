@@ -6,3 +6,5 @@ class Team < ActiveRecord::Base
     has_many :champions, through: :team_champions
 end
 
+
+
