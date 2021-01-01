@@ -9,14 +9,14 @@
 <div style="position: absolute; left: 3%; top: 3%;">
 <% if @enemy_values.sum > @allied_values.sum %>
     <h2>"Your Nexus has been destroyed!"</h2>
+    <div style="position: absolute; left: 3%; top: 50%;">
     <% winning_team = @enemy_team%>
-    <div style="position: absolute; left: 3%; top: 55%;">
     <h3>Winning team: <%= @enemy_team.team_name %></h3>
     </div>
     <% else %>
-    <% winning_team = @allied_team %>%
+    <% winning_team = @allied_team %>
     <h2>"You have destroyed the enemy Nexus!"</h2>
-    <div style="position: absolute; left: 3%; top: 3%;">
+    <div style="position: absolute; left: 3%; top: 50%;">
     <h3>Winning team: <%= @allied_team.team_name %></h3>
     </div>
 <% end %>
