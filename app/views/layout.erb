@@ -22,7 +22,8 @@
   <body>
        <nav style="background-color:rgb(158,144,109);">
     <div class="nav-wrapper container" >
-      <a href="/" class="brand-logo" style="color:rgb(75, 85, 86);">Legends!</a>
+      <a href="/" class="brand-logo" style="color:rgb(75, 85, 86);">Legends! <%if logged_in? %>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Hello,
+      <%="#{current_user.username}" %>!! <% end %> </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if !logged_in? %>
         <li><a href="/login">Login</a></li>
