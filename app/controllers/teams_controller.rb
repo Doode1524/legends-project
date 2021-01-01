@@ -60,6 +60,7 @@ class TeamsController < ApplicationController
 
     delete '/teams/:id' do
         find_team
+        redirect_if_not_team_owner
         if @team
             @team.destroy
             redirect "/teams"
