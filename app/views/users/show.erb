@@ -2,7 +2,7 @@
 
 
 
-<p> <%= @user.username %>'s teams:
+<h2> <%= @user.username %>'s teams:</h2>
     <% Team.all.collect do |team| 
         if team.user_id  == @user.id %>
         <div>
@@ -12,6 +12,8 @@
         <% end %> 
 
     <% end %>
-</p>
+   <div style="position: absolute; left: 35%; top: 20%;">
+    <img height = "600px" width = "1000px" src="/images/champ_img/team1.jpg">
+    </div>
 
 
