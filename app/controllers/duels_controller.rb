@@ -46,7 +46,7 @@ class DuelsController < ApplicationController
             @allied_team.save
                  
             erb :'duels/duel'     
-            binding.pry               
+                      
     end
 
 
