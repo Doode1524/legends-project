@@ -40,7 +40,9 @@ class UsersController < ApplicationController
 
     post '/login' do
         user = User.find_by_username(params[:user][:username])
-        if user && user.authenticate(params[:user][:password])
+        current_user = user
+
+        if user && user.authenticate(params[:user][:password]) && user.email == params[:user][:email]
             session[:user_id] = user.id
             redirect "/teams"    
         else

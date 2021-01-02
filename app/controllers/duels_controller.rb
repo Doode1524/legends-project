@@ -40,6 +40,7 @@ class DuelsController < ApplicationController
             elsif @enemy_values.sum < @allied_values.sum
                 @enemy_team.losses += 1
                 @allied_team.wins += 1
+            
             end
 
             @enemy_team.save
@@ -49,9 +50,7 @@ class DuelsController < ApplicationController
                       
     end
 
-
-
-    get '/duel' do
+        get '/duel' do
         redirect_if_not_logged_in
         erb :'duels/duel'
     end
