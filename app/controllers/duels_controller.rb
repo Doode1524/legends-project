@@ -31,9 +31,25 @@ class DuelsController < ApplicationController
             end                 
             @enemy_stats.each do |k,v|             
                 @enemy_values << v           
-            end                
+            end
+
+            if @enemy_values.sum > @allied_values.sum
+                @enemy_team.wins += 1
+                @allied_team.losses += 1
+                   
+            elsif @enemy_values.sum < @allied_values.sum
+                @enemy_team.losses += 1
+                @allied_team.wins += 1
+            end
+
+            @enemy_team.save
+            @allied_team.save
+                 
             erb :'duels/duel'     
+            binding.pry               
     end
+
+
 
     get '/duel' do
         redirect_if_not_logged_in
