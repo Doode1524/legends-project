@@ -61,7 +61,7 @@ class TeamsController < ApplicationController
         end
     end
 
-    delete '/teams/:id' do
+    delete '/teams/:slug' do
         find_team
         redirect_if_not_team_owner
         if @team
@@ -80,6 +80,6 @@ class TeamsController < ApplicationController
     end
 
     def redirect_if_not_team_owner
-      redirect "/teams" unless @team.user_id == current_user.id
+      redirect "/teams/#{@team.slug}" unless @team.user_id == current_user.id
     end
 end
