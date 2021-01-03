@@ -1,45 +1,58 @@
 <h3> Champions List </h3>
+
 <div style="display: flex; flex-direction: column; align-items: left; justify-content: center;">
+
     <% Champion.all.each do |champ| %>
     <% if champ.id <= 31 %>
-<div style="display: flex; align-items: center; white-space: no-wrap; 
-    width: 18%; height: 20px; margin: 0px; padding: 0px;">
-<ul>
-    <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
-</ul>
-</div >
+
+    <div style="display: flex; align-items: center; white-space: no-wrap; 
+        width: 18%; height: 20px; margin: 0px; padding: 0px;">
+        <ul>
+            <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
+        </ul>
+    </div >
+
     <% elsif champ.id <= 62 && champ.id > 31 %>
-<div style="display: flex; align-items: center; white-space: no-wrap; 
-    width: 18%; height: 20px; margin: 0px; padding: 0px; position: relative; left: 20%; bottom: 620px; ">
-<ul>
-    <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
-</ul>
-</div>
+
+    <div style="display: flex; align-items: center; white-space: no-wrap; 
+        width: 18%; height: 20px; margin: 0px; padding: 0px; position: relative; left: 20%; bottom: 620px; ">
+        <ul>
+            <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
+        </ul>
+    </div>
+
     <% elsif champ.id <= 93 && champ.id > 62 %>
-<div style="display: flex; align-items: center; white-space: no-wrap; 
-    width: 18%; height: 20px; margin: 0px; padding: 0px; position: relative; left: 40%; bottom: 1240px; ">
-<ul>
-    <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
-</ul>
-</div>
+
+    <div style="display: flex; align-items: center; white-space: no-wrap; 
+        width: 18%; height: 20px; margin: 0px; padding: 0px; position: relative; left: 40%; bottom: 1240px; ">
+        <ul>
+            <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
+        </ul>
+    </div>
+
     <% elsif champ.id <= 124 && champ.id > 93 %>
-<div style="display: flex; align-items: center; white-space: no-wrap; 
-    width: 18%; height: 20px; margin: 0px; padding: 0px; position: relative; left: 60%; bottom: 1860px; ">
-<ul>
-    <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
-</ul>
+
+    <div style="display: flex; align-items: center; white-space: no-wrap; 
+        width: 18%; height: 20px; margin: 0px; padding: 0px; position: relative; left: 60%; bottom: 1860px; ">
+        <ul>
+            <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
+        </ul>
+    </div>
+
+    <% elsif champ.id <= 153 && champ.id > 124 %>
+
+    <div style="display: flex; align-items: center; white-space: no-wrap; 
+        width: 18%; height: 20px; margin: 0px; padding: 0px; position: relative; left: 80%; bottom: 2480px; ">
+        <ul>
+            <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
+        </ul>
+    </div>
+
+    <% end %>
+    <% end %>
 </div>
-    <% elsif champ.id <= 155 && champ.id > 124 %>
-<div style="display: flex; align-items: center; white-space: no-wrap; 
-    width: 18%; height: 20px; margin: 0px; padding: 0px; position: relative; left: 80%; bottom: 2480px; ">
-<ul>
-    <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
-</ul>
-</div>
 
 
 
 
-<% end %>
-<% end %>
 
