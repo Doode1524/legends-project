@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
         erb :'/teams/new'
     end
 
-    get '/teams/:id/edit' do
+    get '/teams/:slug/edit' do
         find_team
         redirect_if_not_logged_in
         redirect_if_team_not_found
@@ -21,7 +21,7 @@ class TeamsController < ApplicationController
         erb :'teams/edit'
     end
 
-    get '/teams/:id' do
+    get '/teams/:slug' do
         redirect_if_not_logged_in
         find_team
         redirect_if_team_not_found
@@ -48,16 +48,16 @@ class TeamsController < ApplicationController
       end
 
 
-    patch '/teams/:id' do
+    patch '/teams/:slug' do
       
         find_team
         redirect_if_team_not_found
         redirect_if_not_team_owner
         # binding.pry
         if @team.update(params[:user])
-            redirect "/teams/#{@team.id}"
+            redirect "/teams/#{@team.slug}"
         else
-            redirect "/teams/#{@team.id}/edit"
+            redirect "/teams/#{@team.slug}/edit"
         end
     end
 
@@ -72,7 +72,7 @@ class TeamsController < ApplicationController
 
     private
     def find_team
-        @team = Team.find_by_id(params[:id])
+        @team = Team.find_by_slug(params[:slug])
     end
     
     def redirect_if_team_not_found

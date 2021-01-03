@@ -1,7 +1,7 @@
 <h1>Edit: <%= @team.team_name %><h1>
 
 
-<form action="/teams/<%= @team.id %>" method="post">
+<form action="/teams/<%= @team.slug %>" method="post">
     <input type="hidden" name="_method" value="patch">
     <div class="input-field">
           <label for="team_name">Team Name</label>

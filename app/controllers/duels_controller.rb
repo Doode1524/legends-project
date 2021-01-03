@@ -7,11 +7,11 @@ class DuelsController < ApplicationController
         @user = current_user
         erb :'/duels/home'
     end
-    get '/duels/:id/new' do
+    get '/duels/:slug/new' do
         redirect_if_not_logged_in
         @user = current_user
         @teams = Team.all
-        @team = Team.find_by_id(params[:id])
+        @team = Team.find_by_slug(params[:slug])
         erb :'/duels/new'
     end
       
@@ -53,6 +53,14 @@ class DuelsController < ApplicationController
         get '/duel' do
         redirect_if_not_logged_in
         erb :'duels/duel'
+    end
+
+    def slug
+        team_name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+    end
+    
+    def self.find_by_slug(slug)
+        Team.all.find{|team| team.slug == slug}
     end
 
 end

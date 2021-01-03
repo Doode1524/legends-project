@@ -5,9 +5,9 @@ class UsersController < ApplicationController
         erb :'users/signup'
     end
 
-    get '/users/:id' do
+    get '/users/:slug' do
         redirect_if_not_logged_in
-        @user = User.find_by_id(params[:id])
+        @user = User.find_by_slug(params[:slug])
         erb :'users/show'
         
     end
