@@ -6,8 +6,14 @@ class UsersController < ApplicationController
     end
 
     get '/users/:slug' do
+        @user_wins = []
+        @user_losses = []
         redirect_if_not_logged_in
         @user = User.find_by_slug(params[:slug])
+        @user.teams.collect do |team|
+            @user_wins << team.wins
+            @user_losses << team.losses
+        end  
         erb :'users/show'
         
     end

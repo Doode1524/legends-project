@@ -20,10 +20,23 @@
 
     </head>
   <body>
+
+      
+
        <nav style="background-color:rgb(158,144,109);">
     <div class="nav-wrapper container" >
-      <a href="/" class="brand-logo" style="color:rgb(75, 85, 86);">Legends! <%if logged_in? %>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Hello,
-      <%="#{current_user.username}" %>!! <% end %> </a>
+      <a href="/" class="brand-logo" style="color:rgb(75, 85, 86);">Legends! 
+      <%if logged_in? %>   
+      <% @user_wins = []
+        @user_losses = []
+        @user = current_user
+        @user.teams.collect do |team|
+            @user_wins << team.wins
+            @user_losses << team.losses
+        end %>
+        
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <%="#{current_user.username}" %>:  &nbsp[Wins:&nbsp<%=@user_wins.sum %>][Losses:&nbsp<%=@user_losses.sum %>]<% end %> </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if !logged_in? %>
         <li><a href="/login">Login</a></li>

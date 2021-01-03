@@ -2,7 +2,7 @@
 
 
 
-<h2> <%= @user.username %>'s teams:</h2>
+<h2> <%= @user.username %>'s teams: &nbsp&nbsp&nbsp&nbsp[Wins:&nbsp<%=@user_wins.sum %>][Losses:&nbsp<%=@user_losses.sum %>]</h2>
     <% Team.all.collect do |team| 
         if team.user_id  == @user.id %>
         <div>
