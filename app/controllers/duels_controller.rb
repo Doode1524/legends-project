@@ -19,7 +19,10 @@ class DuelsController < ApplicationController
         @allied_values = []         
         @enemy_values = []         
         @enemy_team = Team.find_by_id(params[:enemy_team])         
-        @allied_team = Team.find_by_id(params[:current_user_team])         
+        @allied_team = Team.find_by_id(params[:current_user_team])
+        if current_user.id == @enemy_team.user_id
+            redirect "/users"
+        else         
             @allied_team.champions.collect do |champ|             
                 @allied_stats = champ.attributes.except("Name", "Title","id","ChampionId")         
             end         
@@ -46,7 +49,8 @@ class DuelsController < ApplicationController
             @enemy_team.save
             @allied_team.save
                  
-            erb :'duels/duel'     
+            erb :'duels/duel'
+        end     
                       
     end
 
