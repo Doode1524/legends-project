@@ -29,3 +29,5 @@
 # puts "h3: #{h3.inspect}"
 
 # end
+
+# @sums.sort_by { |hsh| hsh[:total] }.reverse
