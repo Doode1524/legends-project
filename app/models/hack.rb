@@ -6,7 +6,7 @@
 #     def hack 
 #         Champion.all.collect do |champ|
         
-#             @sums <<  {:id =>champ.id,  :total => Hash[champ.attributes.except("Name",  "Title").sort_by{|k,v| -v}.first(5)].values.sum}
+#             @sums <<  {:id =>champ.id,  :total => Hash[champ.attributes.except("Name",  "Title").sort_by{|k,v| -v}].values.sum}
 #         end
 
 #         @sums.collect do |i|
@@ -25,9 +25,18 @@
 
 #     total = Hash[@sums.map {|v|  [ v]}]
 
+
+
 #     h3 = Hash[a3.map {|key, value| [key, value]}]
 # puts "h3: #{h3.inspect}"
 
 # end
 
+
+
+
+# @sums = []
+# Champion.all.each do |champ|
+#     @sums <<  {:id =>champ.id,  :total => Hash[champ.attributes.except("Name", "id", "ChampionId", "Title").sort_by{|k,v| -v}].values.sum}
+# end
 # @sums.sort_by { |hsh| hsh[:total] }.reverse

@@ -23,24 +23,27 @@ class DuelsController < ApplicationController
         if current_user.id == @enemy_team.user_id
             redirect "/users"
         else         
-            @allied_team.champions.collect do |champ|             
-                @allied_stats = champ.attributes.except("Name", "Title","id","ChampionId")         
+            @allied_team.champions.each do |champ|             
+                @allied_values << {:id =>champ.id,  :total => Hash[champ.attributes.except("Name", "ChampionId", "id",  "Title").sort_by{|k,v| -v}].values.sum}
+            @allied_totals = @allied_values.sum { |hsh| hsh[:total] }     
             end         
-            @enemy_team.champions.collect do |champ|             
-                @enemy_stats = champ.attributes.except("Name", "Title","id","ChampionId")
-            end        
-            @allied_stats.each do |k,v|            
-                @allied_values << v           
-            end                 
-            @enemy_stats.each do |k,v|             
-                @enemy_values << v           
-            end
+            @enemy_team.champions.each do |champ|             
+                @enemy_values << {:id =>champ.id,  :total => Hash[champ.attributes.except("Name", "ChampionId", "id",  "Title").sort_by{|k,v| -v}].values.sum}
+            @enemy_totals = @enemy_values.sum { |hsh| hsh[:total] }    
+            end     
+            
+            # @allied_stats.each do |k,v|            
+            #     @allied_values << v           
+            # end                 
+            # @enemy_stats.each do |k,v|             
+            #     @enemy_values << v           
+            # end
 
-            if @enemy_values.sum > @allied_values.sum
+            if @enemy_totals > @allied_totals
                 @enemy_team.wins += 1
                 @allied_team.losses += 1
                    
-            elsif @enemy_values.sum < @allied_values.sum
+            elsif @enemy_totals < @allied_totals
                 @enemy_team.losses += 1
                 @allied_team.wins += 1
             
