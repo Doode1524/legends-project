@@ -53,7 +53,6 @@ class TeamsController < ApplicationController
         find_team
         redirect_if_team_not_found
         redirect_if_not_team_owner
-        # binding.pry
         if @team.update(params[:user])
             redirect "/teams/#{@team.slug}"
         else

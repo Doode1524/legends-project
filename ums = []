@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /mnt/c/Users/Joe/legends-project/app/views/champions/index.erb:50 self.__tilt_70368307165540:
+
+    [1;34m45[0m:         width: 18%; height: 20px; margin: 0px; padding: 0px; position: relative; left: 80%; bottom: 2480px; ">
+    [1;34m46[0m:         <ul>
+    [1;34m47[0m:             <li><%= champ.id %>: <a href= "/champions/<%= champ.id %>"><%= champ.Name %></a> </li>
+    [1;34m48[0m:         </ul>
+    [1;34m49[0m:     </div>
+ => [1;34m50[0m:     <%binding.pry%>
+    [1;34m51[0m: 
+    [1;34m52[0m:     <% end %>
+    [1;34m53[0m:     <% end %>
+    [1;34m54[0m: </div>
+    [1;34m55[0m: 
+

@@ -4,7 +4,7 @@ class ChampionsController < ApplicationController
         redirect_if_not_logged_in
         erb :'/champions/index'
     end
-
+    
     get '/champions/:id' do
         find_champion
         redirect_if_not_logged_in
