@@ -5,7 +5,7 @@ class ChampionsController < ApplicationController
         erb :'/champions/index'
     end
     
-    get '/champions/:id' do
+    get '/champions/:slug' do
         find_champion
         redirect_if_not_logged_in
         @stats = @champ.attributes.except("id")
@@ -14,7 +14,7 @@ class ChampionsController < ApplicationController
 
     private
     def find_champion
-        @champ = Champion.find_by_id(params[:id])
+        @champ = Champion.find_by_slug(params[:slug])
     end
 
 end

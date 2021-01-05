@@ -4,6 +4,15 @@ class Champion < ActiveRecord::Base
     has_many :team_champions
     has_many :teams, through: :team_champions
 
+    def slug
+        self.Name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+    end
+    
+    def self.find_by_slug(slug)
+        Champion.all.find{|champ| champ.slug == slug}
+    end
+
+
 
     # Api.load_data
     

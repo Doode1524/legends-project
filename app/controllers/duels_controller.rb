@@ -32,36 +32,30 @@ class DuelsController < ApplicationController
             @enemy_totals = @enemy_values.sum { |hsh| hsh[:total] }    
             end     
             
-            # @allied_stats.each do |k,v|            
-            #     @allied_values << v           
-            # end                 
-            # @enemy_stats.each do |k,v|             
-            #     @enemy_values << v           
-            # end
-
+            
             if @enemy_totals > @allied_totals
                 @enemy_team.wins += 1
                 @allied_team.losses += 1
-                   
+                
             elsif @enemy_totals < @allied_totals
                 @enemy_team.losses += 1
                 @allied_team.wins += 1
-            
+                
             end
-
+            
             @enemy_team.save
             @allied_team.save
-                 
+            
             erb :'duels/duel'
         end     
-                      
+        
     end
-
-        get '/duel' do
+    
+    get '/duel' do
         redirect_if_not_logged_in
         erb :'duels/duel'
     end
-
+    
     def slug
         team_name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
     end
@@ -69,5 +63,12 @@ class DuelsController < ApplicationController
     def self.find_by_slug(slug)
         Team.all.find{|team| team.slug == slug}
     end
-
+    
 end
+
+# @allied_stats.each do |k,v|            
+#     @allied_values << v           
+# end                 
+# @enemy_stats.each do |k,v|             
+#     @enemy_values << v           
+# end

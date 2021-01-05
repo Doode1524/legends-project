@@ -9,11 +9,11 @@
 <div style="position: absolute; left: 3%; top: 20%;">
 <table>   
 <tr>     
-<th><a href= "/champions/<%= @team.champions[0].id %>"><%= @team.champions[0].Name %></a></th>     
-<th><a href= "/champions/<%= @team.champions[1].id %>"><%= @team.champions[1].Name %></a></th>     
-<th><a href= "/champions/<%= @team.champions[2].id %>"><%= @team.champions[2].Name %></a></th>     
-<th><a href= "/champions/<%= @team.champions[3].id %>"><%= @team.champions[3].Name %></a></th>     
-<th><a href= "/champions/<%= @team.champions[4].id %>"><%= @team.champions[4].Name %></a></th>
+<th><a href= "/champions/<%= @team.champions[0].slug %>"><%= @team.champions[0].Name %></a></th>     
+<th><a href= "/champions/<%= @team.champions[1].slug %>"><%= @team.champions[1].Name %></a></th>     
+<th><a href= "/champions/<%= @team.champions[2].slug %>"><%= @team.champions[2].Name %></a></th>     
+<th><a href= "/champions/<%= @team.champions[3].slug %>"><%= @team.champions[3].Name %></a></th>     
+<th><a href= "/champions/<%= @team.champions[4].slug %>"><%= @team.champions[4].Name %></a></th>
 </tr>
 <tr>
 <td><img height="570px" width= "330px" src="/images/champ_img/<%= @team.champions[0].id %>.jpg"></td>
