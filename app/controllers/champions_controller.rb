@@ -2,7 +2,9 @@ class ChampionsController < ApplicationController
 
     get '/champions' do
         redirect_if_not_logged_in
+       
         erb :'/champions/index'
+      
     end
     
     get '/champions/:slug' do
@@ -18,3 +20,4 @@ class ChampionsController < ApplicationController
     end
 
 end
+
